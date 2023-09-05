@@ -192,7 +192,7 @@
 							<p>Ipsum volutpat consectetur orci metus consequat imperdiet duis integer semper magna.</p>
 						</header>
 						<div class="row">
-							{{ range (where .Pages "Section" "daily") }}
+							{{ range (where .Pages "Section" "content.daily") }}
 							<li>
 							  <a href="{{ .RelPermalink }}">
 								{{ .Title }}
