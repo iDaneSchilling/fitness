@@ -9,7 +9,7 @@
 	<title>Dane Schilling - Fitness</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<link href="css/site.css" rel="stylesheet"/>
+	<link href="assets/css/site.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -39,55 +39,56 @@
 	</header>
 
 	<main>
-
-		<section class="py-5 text-center container">
-			<div class="row py-lg-5">
-				<div class="col-lg-6 col-md-8 mx-auto">
-					<h1 class="fw-light">My Journal</h1>
-					<p class="lead text-body-secondary">This is a place for me to easily log my daily progress.</p>
-					<div>
-						<h2>Inspirateion Board</h2>
-						<div class="collage">
-							<div class="collage-img">
-								<img src="images/uploads/80sglasses.png"/>
-							</div>
-							<div class="collage-img">
-								<img src="images/uploads/80sglasses.png"/>
-							</div>
-							<div class="collage-img">
-								<img src="images/uploads/80sglasses.png"/>
-							</div>
-							<div class="collage-img">
-								<img src="images/uploads/80sglasses.png"/>
-							</div>
-						</div>
+		<section class="py-3 text-center">
+			<div class="container">
+				<div class="row">
+					{{ $dailyLogs := site.GetPage "daily" }}
+					{{ range $dailyLogs.Pages }}
+					<div class="col col-sm-4 col-md-3 col-lg-2 collage-img" style="background-image: url('{{ .Page.Params.photo }}');">
 					</div>
+					{{ end }}
 				</div>
 			</div>
 		</section>
 
-		<div class="card mb-3" style="max-width: 540px;">
-			<div class="row g-0">
-			  <div class="col-md-4 card-image">
-				<img src="images/uploads/80sglasses.png" class="img-fluid rounded-start" alt="...">
-			  </div>
-			  <div class="col-md-8">
-				<div class="card-body">
-				  <h5 class="card-title">10/12/2023</h5>
-				  <p class="card-text">										
-					<strong>Weight:</strong> 234.2<br />
-					<strong>Mood:</strong> Meh<br />
-					<strong>Did I exercise:</strong> Yes<br />
-					<strong>Did I log my food:</strong> Yes<br />
-					<hr />
-					<p>
-						The day was okay.
-					</p>
-				  </p>
+		<section class="py-3 text-center container">
+			<div class="row py-lg-5">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<h1 class="fw-light">My Journal</h1>
+					<p class="lead text-body-secondary">This is a place for me to easily log my daily progress.</p>
 				</div>
-			  </div>
 			</div>
-		  </div>
+		</section>
+
+		<section class="text-center container">
+			<div class="row py-lg-5">
+				{{ $dailyLogs := site.GetPage "daily" }}
+				{{ range $dailyLogs.Pages }}
+				<div class="card m-3" style="max-width: 540px;">
+					<div class="row g-0">
+						<div class="col-md-4 card-image">
+							<img src="{{ .Page.Params.dailyPhoto }}" class="img-fluid rounded-start" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">{{ time.Format "2006-01-02" .Page.Params.date }}</h5>
+								<p class="card-text">
+									<strong>Weight:</strong>{{ .Page.Params.weight }}<br />
+									<strong>Mood:</strong>{{ .Page.Params.mood }}<br />
+									<strong>Minutes of exercise:</strong>{{ .Page.Params.exercise }}<br />
+									<strong>Daily calories:</strong>{{ .Page.Params.calories }}<br />
+									<hr />
+								<p>
+									{{ .Content }}
+								</p>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{ end }}
+			</div>
+		</section>
 
 	</main>
 

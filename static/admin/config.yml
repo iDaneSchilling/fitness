@@ -5,7 +5,7 @@ backend:
 
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+public_folder: "/images/uploads" 
 
 collections:
   - name: "daily"
@@ -13,9 +13,21 @@ collections:
     folder: 'content/daily'
     create: true
     slug: "{{year}}-{{month}}-{{day}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields:}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "daily"}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "Daily Photo", name: "dailyPhoto", widget: "image"}
+      - {label: "Weight", name: "weight", widget: "number"}
+      - {label: "Minutes of exercise", name: "exercise", widget: "number"}
+      - {label: "Calories", name: "calories", widget: "number"}
+      - {label: "Mood", name: "mood", widget: "select", options: ["sick", "bad", "meh", "okay", "good", "great"]}
+      - {label: "Body", name: "body", widget: "markdown", mode: ["raw"], sanitize_preview: true}
+  - name: "inspiration"
+    label: "Inspiration"
+    folder: 'content/inspiration'
+    create: true
+    slug: "title" # Filename template, e.g., YYYY-MM-DD-title.md
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "daily"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Daily Photo", name: "dailyPhoto", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Photo", name: "photo", widget: "image"}
+
