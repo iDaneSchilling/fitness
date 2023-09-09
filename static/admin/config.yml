@@ -27,7 +27,8 @@ collections:
     folder: 'content/inspiration'
     create: true
     slug: "title" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields:
+    fields:      
       - {label: "Layout", name: "layout", widget: "hidden", default: "daily"}
+      - {label: "Title", name: "title", widget: "string"}
       - {label: "Photo", name: "photo", widget: "image"}
 
