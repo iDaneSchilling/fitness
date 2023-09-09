@@ -13,7 +13,7 @@ collections:
     folder: 'content/daily'
     create: true
     slug: "{{year}}-{{month}}-{{day}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields:}
+    fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "daily"}
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Daily Photo", name: "dailyPhoto", widget: "image"}
