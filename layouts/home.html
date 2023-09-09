@@ -42,7 +42,7 @@
 		<section class="py-3 text-center">
 			<div class="container">
 				<div class="row">
-					{{ $dailyLogs := site.GetPage "daily" }}
+					{{ $dailyLogs := site.GetPage "inspiration" }}
 					{{ range $dailyLogs.Pages }}
 					<div class="col col-sm-4 col-md-3 col-lg-2 collage-img" style="background-image: url('{{ .Page.Params.photo }}');">
 					</div>
@@ -70,7 +70,7 @@
 							<img src="{{ .Page.Params.dailyPhoto }}" class="img-fluid rounded-start" alt="...">
 						</div>
 						<div class="col-md-8">
-							<div class="card-body">
+							<div class="card-body log-card-body">
 								<h5 class="card-title">{{ time.Format "2006-01-02" .Page.Params.date }}</h5>
 								<p class="card-text">
 									<strong>Weight:</strong>{{ .Page.Params.weight }}<br />
