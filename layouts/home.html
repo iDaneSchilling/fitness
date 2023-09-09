@@ -61,22 +61,22 @@
 		</section>
 
 		<section class="text-center container">
-			<div class="row py-lg-5">
+			<div class="row py-lg-5 mx-auto">
 				{{ $dailyLogs := site.GetPage "daily" }}
 				{{ range $dailyLogs.Pages }}
-				<div class="card m-3" style="max-width: 540px;">
+				<div class="card my-2 mx-auto" style="max-width: 400px;">
 					<div class="row g-0">
-						<div class="col-md-4 card-image">
+						<div class="col-xs-1 col-sm-2 col-md-3 card-image">
 							<img src="{{ .Page.Params.dailyPhoto }}" class="img-fluid rounded-start" alt="...">
 						</div>
 						<div class="col-md-8">
 							<div class="card-body log-card-body">
 								<h5 class="card-title">{{ time.Format "2006-01-02" .Page.Params.date }}</h5>
 								<p class="card-text">
-									<strong>Weight:</strong>{{ .Page.Params.weight }}<br />
-									<strong>Mood:</strong>{{ .Page.Params.mood }}<br />
-									<strong>Minutes of exercise:</strong>{{ .Page.Params.exercise }}<br />
-									<strong>Daily calories:</strong>{{ .Page.Params.calories }}<br />
+									<strong>Weight: </strong>{{ .Page.Params.weight }}<br />
+									<strong>Mood: </strong>{{ .Page.Params.mood }}<br />
+									<strong>Minutes of exercise: </strong>{{ .Page.Params.exercise }}<br />
+									<strong>Daily calories: </strong>{{ .Page.Params.calories }}<br />
 									<hr />
 								<p>
 									{{ .Content }}
